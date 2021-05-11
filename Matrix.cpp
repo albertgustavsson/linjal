@@ -19,3 +19,11 @@ unsigned int Matrix::calculateIndex(unsigned int row, unsigned int column) const
 std::pair<unsigned int, unsigned int> Matrix::getDimensions() const {
 	return dimensions;
 }
+
+float& Matrix::operator()(unsigned int row, unsigned int column) {
+	return data[calculateIndex(row, column)];
+}
+
+float Matrix::operator()(unsigned int row, unsigned int column) const {
+	return data[calculateIndex(row, column)];
+}

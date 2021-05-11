@@ -12,4 +12,6 @@ public:
 	Matrix(unsigned int rows, unsigned int columns);
     ~Matrix();
 	std::pair<unsigned int, unsigned int> getDimensions() const;
+    float& operator()(unsigned int row, unsigned int column);
+    float operator()(unsigned int row, unsigned int column) const;
 };
