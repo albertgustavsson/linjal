@@ -3,3 +3,17 @@ build/
 out/
 .vs/
 .vscode/
+CMakeSettings.json
+
+# Template https://github.com/github/gitignore/blob/b2ccc4644b997fa2e86da5ae37f3b053c39f3d7b/CMake.gitignore
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
