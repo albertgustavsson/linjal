@@ -11,8 +11,10 @@ public:
 	Matrix() = delete;
 	Matrix(std::pair<unsigned int, unsigned int> dimensions);
 	Matrix(unsigned int rows, unsigned int columns);
+    Matrix(const Matrix& other);
     ~Matrix();
 	std::pair<unsigned int, unsigned int> getDimensions() const;
+    Matrix& operator=(const Matrix& other);
     float& operator()(unsigned int row, unsigned int column);
     float operator()(unsigned int row, unsigned int column) const;
 };

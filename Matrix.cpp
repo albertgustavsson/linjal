@@ -8,6 +8,12 @@ Matrix::Matrix(std::pair<unsigned int, unsigned int> dimensions) {
 Matrix::Matrix(unsigned int rows, unsigned int columns)
 	: Matrix(std::make_pair(rows, columns)) {}
 
+Matrix::Matrix(const Matrix& other) {
+	dimensions = other.dimensions;
+	data = new float[dimensions.first * dimensions.second];
+	std::memcpy(data, other.data, dimensions.first * dimensions.second * sizeof(float));
+}
+
 Matrix::~Matrix() {
 	delete[] data;
 }
@@ -18,6 +24,15 @@ unsigned int Matrix::calculateIndex(unsigned int row, unsigned int column) const
 
 std::pair<unsigned int, unsigned int> Matrix::getDimensions() const {
 	return dimensions;
+}
+
+Matrix& Matrix::operator=(const Matrix& other) {
+	if (this == &other) return *this;
+	delete[] data;
+	dimensions = other.dimensions;
+	data = new float[dimensions.first * dimensions.second];
+	std::memcpy(data, other.data, dimensions.first * dimensions.second * sizeof(float));
+	return *this;
 }
 
 float& Matrix::operator()(unsigned int row, unsigned int column) {
