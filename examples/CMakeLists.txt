@@ -3,3 +3,9 @@ target_link_libraries(example1 LINK_PUBLIC Matrix)
 
 add_executable(scalarMultiplicationExample scalarMultiplicationExample.cpp)
 target_link_libraries(scalarMultiplicationExample LINK_PUBLIC Matrix)
+
+add_executable(matrixMultiplicationExample matrixMultiplicationExample.cpp)
+target_link_libraries(matrixMultiplicationExample LINK_PUBLIC Matrix)
+
+add_executable(additionExample additionExample.cpp)
+target_link_libraries(additionExample LINK_PUBLIC Matrix)
