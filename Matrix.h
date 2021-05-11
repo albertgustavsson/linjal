@@ -19,6 +19,8 @@ public:
 	Matrix& operator=(Matrix&& other);
     float& operator()(unsigned int row, unsigned int column);
     float operator()(unsigned int row, unsigned int column) const;
+    Matrix operator*(float scalar) const;
+	Matrix& operator*=(float scalar);
 };
 
 std::ostream& operator<<(std::ostream& os, const Matrix& m);

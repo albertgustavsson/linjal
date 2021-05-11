@@ -60,6 +60,21 @@ float Matrix::operator()(unsigned int row, unsigned int column) const {
 	return data[calculateIndex(row, column)];
 }
 
+Matrix Matrix::operator*(float scalar) const {
+	Matrix result = *this;
+	for (unsigned int row = 0; row < dimensions.first; row++) {
+		for (unsigned int column = 0; column < dimensions.second; column++) {
+			result(row, column) *= scalar;
+		}
+	}
+	return result;
+}
+
+Matrix& Matrix::operator*=(float scalar) {
+	*this = (*this)*scalar;
+	return *this;
+}
+
 std::ostream& operator<<(std::ostream& os, const Matrix& m) {
 	std::pair<unsigned int, unsigned int> dimensions = m.getDimensions();
 	os << dimensions.first << " by " << dimensions.second << " matrix" << std::endl;
