@@ -10,7 +10,9 @@ private:
 public:
 	Matrix() = delete;
 	Matrix(std::pair<unsigned int, unsigned int> dimensions);
+	Matrix(std::pair<unsigned int, unsigned int> dimensions, float value);
 	Matrix(unsigned int rows, unsigned int columns);
+	Matrix(unsigned int rows, unsigned int columns, float value);
     Matrix(const Matrix& other);
 	Matrix(Matrix&& other);
     ~Matrix();

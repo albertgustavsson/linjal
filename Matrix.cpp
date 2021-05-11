@@ -5,8 +5,20 @@ Matrix::Matrix(std::pair<unsigned int, unsigned int> dimensions) {
 	data = new float[dimensions.first * dimensions.second];
 }
 
+Matrix::Matrix(std::pair<unsigned int, unsigned int> dimensions, float value)
+	: Matrix(dimensions) {
+	for (unsigned int row = 0; row < dimensions.first; row++) {
+		for (unsigned int column = 0; column < dimensions.second; column++) {
+			operator()(row, column) = value;
+		}
+	}
+}
+
 Matrix::Matrix(unsigned int rows, unsigned int columns)
 	: Matrix(std::make_pair(rows, columns)) {}
+
+Matrix::Matrix(unsigned int rows, unsigned int columns, float value)
+	: Matrix(std::make_pair(rows, columns), value) {}
 
 Matrix::Matrix(const Matrix& other) {
 	dimensions = other.dimensions;
