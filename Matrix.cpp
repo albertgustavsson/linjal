@@ -14,6 +14,13 @@ Matrix::Matrix(const Matrix& other) {
 	std::memcpy(data, other.data, dimensions.first * dimensions.second * sizeof(float));
 }
 
+Matrix::Matrix(Matrix&& other) {
+	dimensions = other.dimensions;
+	data = other.data;
+	other.dimensions = std::make_pair(0, 0);
+	other.data = nullptr;
+}
+
 Matrix::~Matrix() {
 	delete[] data;
 }
@@ -32,6 +39,16 @@ Matrix& Matrix::operator=(const Matrix& other) {
 	dimensions = other.dimensions;
 	data = new float[dimensions.first * dimensions.second];
 	std::memcpy(data, other.data, dimensions.first * dimensions.second * sizeof(float));
+	return *this;
+}
+
+Matrix& Matrix::operator=(Matrix&& other) {
+	if (this == &other) return *this;
+	delete[] data;
+	dimensions = other.dimensions;
+	data = other.data;
+	other.dimensions = std::make_pair(0, 0);
+	other.data = nullptr;
 	return *this;
 }
 
