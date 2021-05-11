@@ -27,3 +27,15 @@ float& Matrix::operator()(unsigned int row, unsigned int column) {
 float Matrix::operator()(unsigned int row, unsigned int column) const {
 	return data[calculateIndex(row, column)];
 }
+
+std::ostream& operator<<(std::ostream& os, const Matrix& m) {
+	std::pair<unsigned int, unsigned int> dimensions = m.getDimensions();
+	os << dimensions.first << " by " << dimensions.second << " matrix" << std::endl;
+	for (unsigned int row = 0; row < dimensions.first; row++) {
+		for (unsigned int column = 0; column < dimensions.second; column++)
+			os << m(row, column) << " ";
+		if (row != dimensions.first - 1)
+			os << std::endl;
+	}
+	return os;
+}

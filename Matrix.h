@@ -1,5 +1,6 @@
 #pragma once
 #include<utility>
+#include<iostream>
 
 class Matrix {
 private:
@@ -15,3 +16,5 @@ public:
     float& operator()(unsigned int row, unsigned int column);
     float operator()(unsigned int row, unsigned int column) const;
 };
+
+std::ostream& operator<<(std::ostream& os, const Matrix& m);
