@@ -21,6 +21,8 @@ public:
     float operator()(unsigned int row, unsigned int column) const;
     Matrix operator*(float scalar) const;
 	Matrix& operator*=(float scalar);
+	Matrix operator*(Matrix& other) const;
+	Matrix operator+(Matrix& other) const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Matrix& m);

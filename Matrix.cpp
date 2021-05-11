@@ -75,6 +75,37 @@ Matrix& Matrix::operator*=(float scalar) {
 	return *this;
 }
 
+Matrix Matrix::operator*(Matrix& other) const {
+	if (dimensions.second != other.dimensions.first) {
+		// Error: bad dimensions of operands
+	}
+
+	Matrix result(dimensions.first, other.dimensions.second);
+	for (unsigned int row = 0; row < result.dimensions.first; row++) {
+		for (unsigned int column = 0; column < result.dimensions.second; column++) {
+			result(row, column) = 0.0;
+			for (unsigned int i = 0; i < dimensions.second; i++) {
+				result(row, column) += operator()(row, i) * other(i, column);
+			}
+		}
+	}
+	return result;
+}
+
+Matrix Matrix::operator+(Matrix& other) const {
+	if (dimensions != other.dimensions) {
+		// Error: bad dimensions of operands
+	}
+
+	Matrix result(dimensions);
+	for (unsigned int row = 0; row < dimensions.first; row++) {
+		for (unsigned int column = 0; column < dimensions.second; column++) {
+			result(row, column) = operator()(row, column) + other(row, column);
+		}
+	}
+	return result;
+}
+
 std::ostream& operator<<(std::ostream& os, const Matrix& m) {
 	std::pair<unsigned int, unsigned int> dimensions = m.getDimensions();
 	os << dimensions.first << " by " << dimensions.second << " matrix" << std::endl;
