@@ -15,3 +15,7 @@ Matrix::~Matrix() {
 unsigned int Matrix::calculateIndex(unsigned int row, unsigned int column) const {
 	return row * dimensions.second + column;
 }
+
+std::pair<unsigned int, unsigned int> Matrix::getDimensions() const {
+	return dimensions;
+}

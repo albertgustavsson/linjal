@@ -11,4 +11,5 @@ public:
 	Matrix(std::pair<unsigned int, unsigned int> dimensions);
 	Matrix(unsigned int rows, unsigned int columns);
     ~Matrix();
+	std::pair<unsigned int, unsigned int> getDimensions() const;
 };
