@@ -1,5 +1,5 @@
 # matrix-cpp
-A library for matrix operations written i C++
+A library for matrix operations written in C++
 
 ## Building
 CMake is used for building the library.
