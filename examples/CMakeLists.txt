@@ -13,5 +13,5 @@ target_link_libraries(matrixMultiplicationExample LINK_PUBLIC Matrix)
 add_executable(additionExample additionExample.cpp)
 target_link_libraries(additionExample LINK_PUBLIC Matrix)
 
-add_executable(inverseExample inverseExample.cpp)
-target_link_libraries(inverseExample LINK_PUBLIC Matrix)
+add_executable(transposeExample transposeExample.cpp)
+target_link_libraries(transposeExample LINK_PUBLIC Matrix)

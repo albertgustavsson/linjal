@@ -8,6 +8,6 @@ int main(int argc, char const* argv[])
     m(1, 1) = 2;
     m(1, 2) = 3;
     std::cout << m << std::endl;
-    std::cout << m.getInverse() << std::endl;
+    std::cout << m.getTranspose() << std::endl;
     return 0;
 }

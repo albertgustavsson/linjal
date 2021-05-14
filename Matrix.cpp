@@ -45,7 +45,7 @@ std::pair<unsigned int, unsigned int> Matrix::getDimensions() const {
 	return dimensions;
 }
 
-Matrix Matrix::getInverse() const {
+Matrix Matrix::getTranspose() const {
 	Matrix result(dimensions.second, dimensions.first);
 	for (unsigned int row = 0; row < dimensions.first; row++) {
 		for (unsigned int column = 0; column < dimensions.second; column++) {
