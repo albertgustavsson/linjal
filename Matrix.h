@@ -17,6 +17,7 @@ public:
 	Matrix(Matrix&& other);
     ~Matrix();
 	std::pair<unsigned int, unsigned int> getDimensions() const;
+	Matrix getInverse() const;
     Matrix& operator=(const Matrix& other);
 	Matrix& operator=(Matrix&& other);
     float& operator()(unsigned int row, unsigned int column);
