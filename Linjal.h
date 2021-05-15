@@ -49,6 +49,8 @@ public:
 	Vector operator*(float scalar) const;
 	Vector& operator*=(float scalar);
 	Vector operator+(Vector& other) const;
+	Vector operator-() const;
+	Vector operator-(Vector& other) const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Vector& v);

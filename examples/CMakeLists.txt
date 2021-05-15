@@ -19,5 +19,11 @@ target_link_libraries(vectorAddition LINK_PUBLIC Linjal)
 add_executable(vectorInitialization vectorInitialization.cpp)
 target_link_libraries(vectorInitialization LINK_PUBLIC Linjal)
 
+add_executable(vectorNegation vectorNegation.cpp)
+target_link_libraries(vectorNegation LINK_PUBLIC Linjal)
+
 add_executable(vectorScalarMultiplication vectorScalarMultiplication.cpp)
 target_link_libraries(vectorScalarMultiplication LINK_PUBLIC Linjal)
+
+add_executable(vectorSubtraction vectorSubtraction.cpp)
+target_link_libraries(vectorSubtraction LINK_PUBLIC Linjal)

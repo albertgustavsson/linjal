@@ -229,6 +229,18 @@ Vector Vector::operator+(Vector& other) const {
 	return result;
 }
 
+
+Vector Vector::operator-() const {
+	Vector result(dimensions);
+	for (unsigned int d = 0; d < dimensions; d++) {
+		result(d) = -operator()(d);
+	}
+	return result;
+}
+Vector Vector::operator-(Vector& other) const {
+	return *this + (-other);
+}
+
 std::ostream& operator<<(std::ostream& os, const Vector& v) {
 	unsigned int dimensions = v.getDimensions();
 	os << dimensions << "-dimensional vector" << std::endl;
