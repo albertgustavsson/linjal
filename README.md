@@ -1,5 +1,5 @@
-# matrix-cpp
-A library for matrix operations written in C++
+# Linjal
+A C++ library for linear algebra
 
 ## Building
 CMake is used for building the library.
