@@ -139,3 +139,103 @@ std::ostream& operator<<(std::ostream& os, const Matrix& m) {
 	}
 	return os;
 }
+
+
+
+
+Vector::Vector(unsigned int dimensions) {
+	this->dimensions = dimensions;
+	data = new float[dimensions];
+}
+
+Vector::Vector(unsigned int dimensions, float value) {
+	this->dimensions = dimensions;
+	data = new float[dimensions];
+	for (unsigned int d = 0; d < dimensions; d++) {
+		operator()(d) = value;
+	}
+}
+
+Vector::Vector(const Vector& other) {
+	dimensions = other.dimensions;
+	data = new float[dimensions];
+	std::memcpy(data, other.data, dimensions * sizeof(float));
+}
+
+Vector::Vector(Vector&& other) {
+	dimensions = other.dimensions;
+	data = other.data;
+	other.dimensions = 0;
+	other.data = nullptr;
+}
+
+Vector::~Vector() {
+	delete[] data;
+}
+
+unsigned int Vector::getDimensions() const {
+	return dimensions;
+}
+
+Vector& Vector::operator=(const Vector& other) {
+	if (this == &other) return *this;
+	delete[] data;
+	dimensions = other.dimensions;
+	data = new float[dimensions];
+	std::memcpy(data, other.data, dimensions * sizeof(float));
+	return *this;
+}
+
+Vector& Vector::operator=(Vector&& other) {
+	if (this == &other) return *this;
+	delete[] data;
+	dimensions = other.dimensions;
+	data = other.data;
+	other.dimensions = 0;
+	other.data = nullptr;
+	return *this;
+}
+
+float& Vector::operator()(unsigned int dimension) {
+	return data[dimension];
+}
+
+float Vector::operator()(unsigned int dimension) const {
+	return data[dimension];
+}
+
+Vector Vector::operator*(float scalar) const {
+	Vector result = *this;
+	for (unsigned int d = 0; d < dimensions; d++) {
+		result(d) *= scalar;
+	}
+	return result;
+}
+
+Vector& Vector::operator*=(float scalar) {
+	*this = (*this) * scalar;
+	return *this;
+}
+
+Vector Vector::operator+(Vector& other) const {
+	if (dimensions != other.dimensions) {
+		// Error: bad dimensions of operands
+	}
+
+	Vector result = *this;
+	for (unsigned int d = 0; d < dimensions; d++) {
+		result(d) += other(d);
+	}
+	return result;
+}
+
+std::ostream& operator<<(std::ostream& os, const Vector& v) {
+	unsigned int dimensions = v.getDimensions();
+	os << dimensions << "-dimensional vector" << std::endl;
+	for (unsigned int d = 0; d < dimensions; d++) {
+		os << v(d);
+		if (d != dimensions - 1)
+			os << std::endl;
+	}
+	return os;
+}

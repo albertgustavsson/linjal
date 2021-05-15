@@ -29,3 +29,26 @@ public:
 };
 
 std::ostream& operator<<(std::ostream& os, const Matrix& m);
+
+class Vector {
+private:
+	unsigned int dimensions;
+	float* data;
+public:
+	Vector() = delete;
+	Vector(unsigned int dimensions);
+	Vector(unsigned int dimensions, float value);
+	Vector(const Vector& other);
+	Vector(Vector&& other);
+	~Vector();
+	unsigned int getDimensions() const;
+	Vector& operator=(const Vector& other);
+	Vector& operator=(Vector&& other);
+	float& operator()(unsigned int dimension);
+	float operator()(unsigned int dimension) const;
+	Vector operator*(float scalar) const;
+	Vector& operator*=(float scalar);
+	Vector operator+(Vector& other) const;
+};
+
+std::ostream& operator<<(std::ostream& os, const Vector& v);

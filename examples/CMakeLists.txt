@@ -12,3 +12,12 @@ target_link_libraries(matrixScalarMultiplication LINK_PUBLIC Linjal)
 
 add_executable(matrixTranspose matrixTranspose.cpp)
 target_link_libraries(matrixTranspose LINK_PUBLIC Linjal)
+
+add_executable(vectorAddition vectorAddition.cpp)
+target_link_libraries(vectorAddition LINK_PUBLIC Linjal)
+
+add_executable(vectorInitialization vectorInitialization.cpp)
+target_link_libraries(vectorInitialization LINK_PUBLIC Linjal)
+
+add_executable(vectorScalarMultiplication vectorScalarMultiplication.cpp)
+target_link_libraries(vectorScalarMultiplication LINK_PUBLIC Linjal)
