@@ -128,6 +128,20 @@ Matrix Matrix::operator+(Matrix& other) const {
 	return result;
 }
 
+Matrix Matrix::operator-() const {
+	Matrix result(dimensions);
+	for (unsigned int row = 0; row < dimensions.first; row++) {
+		for (unsigned int column = 0; column < dimensions.second; column++) {
+			result(row, column) = -operator()(row, column);
+		}
+	}
+	return result;
+}
+
+Matrix Matrix::operator-(Matrix& other) const {
+	return *this + (-other);
+}
+
 std::ostream& operator<<(std::ostream& os, const Matrix& m) {
 	std::pair<unsigned int, unsigned int> dimensions = m.getDimensions();
 	os << dimensions.first << " by " << dimensions.second << " matrix" << std::endl;
@@ -229,7 +243,6 @@ Vector Vector::operator+(Vector& other) const {
 	return result;
 }
 
-
 Vector Vector::operator-() const {
 	Vector result(dimensions);
 	for (unsigned int d = 0; d < dimensions; d++) {
@@ -237,6 +250,7 @@ Vector Vector::operator-() const {
 	}
 	return result;
 }
+
 Vector Vector::operator-(Vector& other) const {
 	return *this + (-other);
 }

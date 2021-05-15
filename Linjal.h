@@ -26,6 +26,8 @@ public:
 	Matrix& operator*=(float scalar);
 	Matrix operator*(Matrix& other) const;
 	Matrix operator+(Matrix& other) const;
+	Matrix operator-() const;
+	Matrix operator-(Matrix& other) const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Matrix& m);

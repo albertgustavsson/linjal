@@ -7,8 +7,14 @@ target_link_libraries(matrixInitialization LINK_PUBLIC Linjal)
 add_executable(matrixMultiplication matrixMultiplication.cpp)
 target_link_libraries(matrixMultiplication LINK_PUBLIC Linjal)
 
+add_executable(matrixNegation matrixNegation.cpp)
+target_link_libraries(matrixNegation LINK_PUBLIC Linjal)
+
 add_executable(matrixScalarMultiplication matrixScalarMultiplication.cpp)
 target_link_libraries(matrixScalarMultiplication LINK_PUBLIC Linjal)
+
+add_executable(matrixSubtraction matrixSubtraction.cpp)
+target_link_libraries(matrixSubtraction LINK_PUBLIC Linjal)
 
 add_executable(matrixTranspose matrixTranspose.cpp)
 target_link_libraries(matrixTranspose LINK_PUBLIC Linjal)
