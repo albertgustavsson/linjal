@@ -2,7 +2,7 @@
 
 Matrix::Matrix(std::pair<unsigned int, unsigned int> dimensions) {
 	this->dimensions = dimensions;
-	data = new float[dimensions.first * dimensions.second];
+	data = new float[(size_t)dimensions.first * dimensions.second];
 }
 
 Matrix::Matrix(std::pair<unsigned int, unsigned int> dimensions, float value)
@@ -22,11 +22,11 @@ Matrix::Matrix(unsigned int rows, unsigned int columns, float value)
 
 Matrix::Matrix(const Matrix& other) {
 	dimensions = other.dimensions;
-	data = new float[dimensions.first * dimensions.second];
-	std::memcpy(data, other.data, dimensions.first * dimensions.second * sizeof(float));
+	data = new float[(size_t)dimensions.first * dimensions.second];
+	std::memcpy(data, other.data, (size_t)dimensions.first * dimensions.second * sizeof(float));
 }
 
-Matrix::Matrix(Matrix&& other) {
+Matrix::Matrix(Matrix&& other) noexcept {
 	dimensions = other.dimensions;
 	data = other.data;
 	other.dimensions = std::make_pair(0, 0);
@@ -55,16 +55,16 @@ Matrix Matrix::getTranspose() const {
 	return result;
 }
 
-Matrix& Matrix::operator=(const Matrix& other) {
+Matrix& Matrix::operator=(const Matrix& other) noexcept {
 	if (this == &other) return *this;
 	delete[] data;
 	dimensions = other.dimensions;
-	data = new float[dimensions.first * dimensions.second];
-	std::memcpy(data, other.data, dimensions.first * dimensions.second * sizeof(float));
+	data = new float[(size_t)dimensions.first * dimensions.second];
+	std::memcpy(data, other.data, (size_t)dimensions.first * dimensions.second * sizeof(float));
 	return *this;
 }
 
-Matrix& Matrix::operator=(Matrix&& other) {
+Matrix& Matrix::operator=(Matrix&& other) noexcept {
 	if (this == &other) return *this;
 	delete[] data;
 	dimensions = other.dimensions;
@@ -162,7 +162,7 @@ Vector::Vector(const Vector& other) {
 	std::memcpy(data, other.data, dimensions * sizeof(float));
 }
 
-Vector::Vector(Vector&& other) {
+Vector::Vector(Vector&& other) noexcept {
 	dimensions = other.dimensions;
 	data = other.data;
 	other.dimensions = 0;
@@ -177,7 +177,7 @@ unsigned int Vector::getDimensions() const {
 	return dimensions;
 }
 
-Vector& Vector::operator=(const Vector& other) {
+Vector& Vector::operator=(const Vector& other) noexcept {
 	if (this == &other) return *this;
 	delete[] data;
 	dimensions = other.dimensions;
@@ -186,7 +186,7 @@ Vector& Vector::operator=(const Vector& other) {
 	return *this;
 }
 
-Vector& Vector::operator=(Vector&& other) {
+Vector& Vector::operator=(Vector&& other) noexcept {
 	if (this == &other) return *this;
 	delete[] data;
 	dimensions = other.dimensions;
@@ -239,6 +239,17 @@ Vector Vector::operator-() const {
 }
 Vector Vector::operator-(Vector& other) const {
 	return *this + (-other);
+}
+
+float Vector::dotProduct(Vector& other) const {
+	if (dimensions != other.dimensions) {
+		// Error: bad dimensions of operands
+	}
+	float result = 0.0;
+	for (unsigned int d = 0; d < dimensions; d++) {
+		result += (*this)(d) * other(d);
+	}
+	return result;
 }
 
 std::ostream& operator<<(std::ostream& os, const Vector& v) {
