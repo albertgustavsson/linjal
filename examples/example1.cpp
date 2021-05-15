@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Matrix.h"
+#include "Linjal.h"
 
 int main(int argc, char const *argv[])
 {

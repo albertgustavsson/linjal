@@ -1,4 +1,4 @@
-#include "Matrix.h"
+#include "Linjal.h"
 
 Matrix::Matrix(std::pair<unsigned int, unsigned int> dimensions) {
 	this->dimensions = dimensions;

@@ -10,3 +10,7 @@ mkdir build
 cd build
 cmake ..
 ```
+
+## Goals
+The goal of this library is to provide code for common operations in linear algebra.
+A secondary goal is to have the library use OpenCL for GPU acceleration when available on the system.
