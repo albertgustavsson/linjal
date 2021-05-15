@@ -1,17 +1,14 @@
-add_executable(example1 example1.cpp)
-target_link_libraries(example1 LINK_PUBLIC Linjal)
+add_executable(matrixAddition matrixAddition.cpp)
+target_link_libraries(matrixAddition LINK_PUBLIC Linjal)
 
-add_executable(initializationExample initializationExample.cpp)
-target_link_libraries(initializationExample LINK_PUBLIC Linjal)
+add_executable(matrixInitialization matrixInitialization.cpp)
+target_link_libraries(matrixInitialization LINK_PUBLIC Linjal)
 
-add_executable(scalarMultiplicationExample scalarMultiplicationExample.cpp)
-target_link_libraries(scalarMultiplicationExample LINK_PUBLIC Linjal)
+add_executable(matrixMultiplication matrixMultiplication.cpp)
+target_link_libraries(matrixMultiplication LINK_PUBLIC Linjal)
 
-add_executable(matrixMultiplicationExample matrixMultiplicationExample.cpp)
-target_link_libraries(matrixMultiplicationExample LINK_PUBLIC Linjal)
+add_executable(matrixScalarMultiplication matrixScalarMultiplication.cpp)
+target_link_libraries(matrixScalarMultiplication LINK_PUBLIC Linjal)
 
-add_executable(additionExample additionExample.cpp)
-target_link_libraries(additionExample LINK_PUBLIC Linjal)
-
-add_executable(transposeExample transposeExample.cpp)
-target_link_libraries(transposeExample LINK_PUBLIC Linjal)
+add_executable(matrixTranspose matrixTranspose.cpp)
+target_link_libraries(matrixTranspose LINK_PUBLIC Linjal)
