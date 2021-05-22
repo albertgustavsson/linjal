@@ -48,6 +48,7 @@ public:
 	Vector& operator=(Vector&& other) noexcept;
 	float& operator()(unsigned int dimension);
 	float operator()(unsigned int dimension) const;
+	float getMagnitude() const;
 	Vector operator*(float scalar) const;
 	Vector& operator*=(float scalar);
 	Vector operator+(Vector& other) const;

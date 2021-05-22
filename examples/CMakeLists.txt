@@ -28,6 +28,9 @@ target_link_libraries(vectorDotProduct LINK_PUBLIC Linjal)
 add_executable(vectorInitialization vectorInitialization.cpp)
 target_link_libraries(vectorInitialization LINK_PUBLIC Linjal)
 
+add_executable(vectorMagnitude vectorMagnitude.cpp)
+target_link_libraries(vectorMagnitude LINK_PUBLIC Linjal)
+
 add_executable(vectorNegation vectorNegation.cpp)
 target_link_libraries(vectorNegation LINK_PUBLIC Linjal)
 

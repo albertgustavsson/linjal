@@ -218,6 +218,15 @@ float Vector::operator()(unsigned int dimension) const {
 	return data[dimension];
 }
 
+float Vector::getMagnitude() const {
+	float sum = 0;
+	for (unsigned int d = 0; d < dimensions; d++) {
+		float temp = (*this)(d);
+		sum += temp * temp;
+	}
+	return sqrt(sum);
+}
+
 Vector Vector::operator*(float scalar) const {
 	Vector result = *this;
 	for (unsigned int d = 0; d < dimensions; d++) {
